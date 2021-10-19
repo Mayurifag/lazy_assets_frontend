@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Typography, AppBar, Card, CardActions, CardContent, CardMedia, CssBaseline, Grid, Toolbar, Container } from '@mui/material'
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar>
+          <AccountBalanceIcon />
+          <Typography variant="h6">Lazy Assets</Typography>
+        </Toolbar>
+      </AppBar>
+      <main>
+        <div>
+          <Container maxWidth="sm">
+            <Typography variant="h2" align="center" color="textPrimary" gutterBottom>
+              Photo Album
+            </Typography>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+              Hello everyone!
+            </Typography>
+          </Container>
+        </div>
+      </main>
+    </ThemeProvider>
   );
 }
 
